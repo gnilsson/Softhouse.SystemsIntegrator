@@ -2,7 +2,7 @@ using Softhouse.Shared.Metadata;
 using FluentAssertions;
 using FluentAssertions.Equivalency;
 
-namespace Softhouse.Parser.Tests;
+namespace Softhouse.Parser.Tests.FormatParsingService;
 
 public class FormatParsingServiceTests
 {
@@ -11,7 +11,7 @@ public class FormatParsingServiceTests
     public void Parse_InputString_ReturnsEnumerableRowParsingResult(string input, RowParsingResult[] expectedResult)
     {
         //Arrange
-        var formatParsingService = new FormatParsingService();
+        var formatParsingService = new Parser.FormatParsingService();
 
         //Act
         var result = formatParsingService.Parse(input);

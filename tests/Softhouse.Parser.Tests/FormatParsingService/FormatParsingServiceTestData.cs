@@ -1,6 +1,6 @@
 ﻿using Softhouse.Shared.Metadata;
 
-namespace Softhouse.Parser.Tests;
+namespace Softhouse.Parser.Tests.FormatParsingService;
 
 public class FormatParsingServiceTestData
 {

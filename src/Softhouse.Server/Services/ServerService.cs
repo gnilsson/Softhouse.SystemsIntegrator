@@ -33,11 +33,11 @@ internal sealed class ServerService : IServerService
 
             try
             {
-                RunConverter();
+                RunTranslator();
             }
             catch (Exception e)
             {
-                _consoleManager.WriteLine($"an unhandled error occured in converter.\n", ConsoleColor.Red);
+                _consoleManager.WriteLine($"an unhandled error occured in translator.\n", ConsoleColor.Red);
 
                 _consoleManager.WriteLine($"\n{e.Message}\n");
 
@@ -66,7 +66,7 @@ internal sealed class ServerService : IServerService
         } while (true);
     }
 
-    private void RunConverter()
+    private void RunTranslator()
     {
         do
         {
@@ -80,7 +80,7 @@ internal sealed class ServerService : IServerService
 
             if (parsingResults.Any(x => x.Error is not null))
             {
-                _consoleManager.WriteLine($"\nerror occured in parser.\n", ConsoleColor.Red);
+                _consoleManager.WriteLine($"\nan error occured in parser.\n", ConsoleColor.Red);
 
                 foreach (var parsingResult in parsingResults.Where(x => x.Error is not null))
                 {
@@ -96,15 +96,13 @@ internal sealed class ServerService : IServerService
                 _consoleManager.WriteLine($"row: {Array.IndexOf(parsingResults, parsingResult) + 1} message: {parsingResult.Warning}\n", ConsoleColor.DarkYellow);
             }
 
-            var rowInputFormats = parsingResults
-                .Select(x => x.RowInputFormat)
-                .ToArray();
+            var rowInputFormats = parsingResults.Select(x => x.RowInputFormat!).ToArray();
 
-            var xml = _xmlConvertingService.Convert(rowInputFormats!);
+            var xml = _xmlConvertingService.Convert(rowInputFormats);
 
             if (xml.Error is not null)
             {
-                _consoleManager.WriteLine($"error occured in converter.\nstatus: {xml.Error.Status}, message: {string.Join("\n", xml.Error.Messages)}", ConsoleColor.Red);
+                _consoleManager.WriteLine($"an error occured in converter.\nstatus: {xml.Error.Status}, message: {string.Join("\n", xml.Error.Messages)}", ConsoleColor.Red);
 
                 return;
             }
