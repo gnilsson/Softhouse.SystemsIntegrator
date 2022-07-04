@@ -67,8 +67,8 @@ public sealed class XmlConvertingService : IXmlConvertingService
                 {
                     var familyElement = new XElement(XElementName.Family);
 
-                    familyElement.AddIfNotNull(XElementName.Name, familyMember.FirstName);
-                    familyElement.AddIfNotNull(XElementName.Born, familyMember.YearOfBirth);
+                    familyElement.AddIfNotNull(XElementName.Name, familyMember.Name);
+                    familyElement.AddIfNotNull(XElementName.Born, familyMember.BirthdateYear);
 
                     familyElement.AddContactXElements(familyMember);
 
@@ -91,7 +91,7 @@ public sealed class XmlConvertingService : IXmlConvertingService
 
         try
         {
-            var memory = new MemoryStream();
+            using var memory = new MemoryStream();
             xdoc.Save(memory);
             text = Encoding.UTF8.GetString(memory.ToArray());
         }

@@ -2,6 +2,6 @@
 
 public sealed record FamilyMember : Contact
 {
-    public string? FirstName { get; init; }
-    public string? YearOfBirth { get; init; }
+    public string? Name { get; init; }
+    public string? BirthdateYear { get; init; }
 }

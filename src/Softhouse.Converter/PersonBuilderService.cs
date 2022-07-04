@@ -49,8 +49,8 @@ public sealed class PersonBuilderService : IPersonBuilderService
                 }),
                 FamilyMembers = PersonPropertyBuilder.BuildRows(familyTargetRows, (row, i) => new FamilyMember
                 {
-                    FirstName = PersonPropertyBuilder.BuildColumn(row, 0),
-                    YearOfBirth = PersonPropertyBuilder.BuildColumn(row, 1),
+                    Name = PersonPropertyBuilder.BuildColumn(row, 0),
+                    BirthdateYear = PersonPropertyBuilder.BuildColumn(row, 1),
                     Address = PersonPropertyBuilder.BuildRow(familyContactRowInputs[i].Address, (row) => new Address
                     {
                         Street = PersonPropertyBuilder.BuildColumn(row, 0),
