@@ -1,13 +1,10 @@
-﻿
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Softhouse.Converter;
 using Softhouse.Parser;
 using Softhouse.Server.Services;
-using System.Runtime.CompilerServices;
 
-//[assembly: InternalsVisibleTo("Softhouse.Server.Tests")]
 namespace Softhouse.Server;
 
 public class Program

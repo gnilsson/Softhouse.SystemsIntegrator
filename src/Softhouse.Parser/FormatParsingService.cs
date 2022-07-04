@@ -1,5 +1,4 @@
-﻿using Softhouse.Shared;
-using Softhouse.Shared.Metadata;
+﻿using Softhouse.Shared.Metadata;
 
 namespace Softhouse.Parser;
 
@@ -38,7 +37,7 @@ public sealed class FormatParsingService : IFormatParsingService
             {
                 yield return new RowParsingResult
                 {
-                    Error = new ParsingError { Message = $"Row contains no value columns." }
+                    Error = new RowParsingError { Message = "Row contains no value columns.", Status = RowParsingErrorStatus.Empty },
                 };
                 continue;
             }
@@ -49,7 +48,7 @@ public sealed class FormatParsingService : IFormatParsingService
             {
                 yield return new RowParsingResult
                 {
-                    Error = new ParsingError { Message = $"Category '{categoryInput}' is not valid." }
+                    Error = new RowParsingError { Message = $"Category '{categoryInput}' is not valid.", Status = RowParsingErrorStatus.Invalid }
                 };
                 continue;
             }

@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Softhouse.Shared", "src\Sof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softhouse.Parser", "src\Softhouse.Parser\Softhouse.Parser.csproj", "{E10C53A4-0F19-4C0D-AE34-279C881B3B4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softhouse.Parser.Tests", "tests\Softhouse.Parser.Tests\Softhouse.Parser.Tests.csproj", "{BF706F28-1ADF-4338-8A97-933CF84149F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{E10C53A4-0F19-4C0D-AE34-279C881B3B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E10C53A4-0F19-4C0D-AE34-279C881B3B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E10C53A4-0F19-4C0D-AE34-279C881B3B4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF706F28-1ADF-4338-8A97-933CF84149F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF706F28-1ADF-4338-8A97-933CF84149F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF706F28-1ADF-4338-8A97-933CF84149F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF706F28-1ADF-4338-8A97-933CF84149F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{9A91A420-EBA8-4B9C-B2A9-3F301FD7CC86} = {267A30CA-5AF8-4D72-BC54-19594AEB41F8}
 		{6B1DAD71-B02A-430A-9C48-1C7AB14CB47E} = {0C840980-3EA4-4950-9A20-B5B04FAAD872}
 		{E10C53A4-0F19-4C0D-AE34-279C881B3B4C} = {0C840980-3EA4-4950-9A20-B5B04FAAD872}
+		{BF706F28-1ADF-4338-8A97-933CF84149F1} = {267A30CA-5AF8-4D72-BC54-19594AEB41F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {926B0095-E482-4684-BD71-0CFD8F356A64}

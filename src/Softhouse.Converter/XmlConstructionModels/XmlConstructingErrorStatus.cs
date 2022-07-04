@@ -4,5 +4,4 @@ public enum XmlConstructingErrorStatus
 {
     Empty,
     Invalid,
-    Warning
 }

@@ -76,26 +76,27 @@ internal sealed class ServerService : IServerService
 
             if (string.IsNullOrEmpty(input)) continue;
 
-            var parsingResult = _formatParsingService.Parse(input).ToArray();
+            var parsingResults = _formatParsingService.Parse(input).ToArray();
 
-            if (parsingResult.Any(x => x.Error is not null))
+            if (parsingResults.Any(x => x.Error is not null))
             {
                 _consoleManager.WriteLine($"\nerror occured in parser.\n", ConsoleColor.Red);
 
-                foreach (var parsedValue in parsingResult.Where(x => x.Error is not null))
+                foreach (var parsingResult in parsingResults.Where(x => x.Error is not null))
                 {
-                    _consoleManager.WriteLine($"row: {Array.IndexOf(parsingResult, parsedValue) + 1}, message: {parsedValue.Error!.Message}\n");
+                    _consoleManager.WriteLine(
+                        $"row: {Array.IndexOf(parsingResults, parsingResult) + 1}, status: {parsingResult.Error!.Status}, message: {parsingResult.Error!.Message}\n");
                 }
 
                 return;
             }
 
-            foreach (var parsedValue in parsingResult.Where(x => x.Warning is not null))
+            foreach (var parsingResult in parsingResults.Where(x => x.Warning is not null))
             {
-                _consoleManager.WriteLine($"row: {Array.IndexOf(parsingResult, parsedValue) + 1}, message: {parsedValue.Warning}\n", ConsoleColor.DarkYellow);
+                _consoleManager.WriteLine($"row: {Array.IndexOf(parsingResults, parsingResult) + 1} message: {parsingResult.Warning}\n", ConsoleColor.DarkYellow);
             }
 
-            var rowInputFormats = parsingResult
+            var rowInputFormats = parsingResults
                 .Select(x => x.RowInputFormat)
                 .ToArray();
 

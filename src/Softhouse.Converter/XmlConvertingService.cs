@@ -2,12 +2,9 @@
 using Softhouse.Converter.Extensions;
 using Softhouse.Converter.XmlConstructionModels;
 using Softhouse.Shared.Metadata;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Xml;
 using System.Xml.Linq;
 
-[assembly: InternalsVisibleTo("Softhouse.Converter.Tests")]
 namespace Softhouse.Converter;
 
 public sealed class XmlConvertingService : IXmlConvertingService
@@ -43,13 +40,6 @@ public sealed class XmlConvertingService : IXmlConvertingService
             Document = xmlDocument,
             Text = xmlText,
         };
-
-        //note: if you wish to validate the xml document, you can use this and define a schema
-        //xmlDocument.Schemas.Add(new XmlSchema());
-        //xmlDocument.Validate(new ValidationEventHandler((sender, e) =>
-        //{
-        //
-        //}));
     }
 
     private XDocument? ConstructXDocument(RowInputFormat[] rowInputFormats)
