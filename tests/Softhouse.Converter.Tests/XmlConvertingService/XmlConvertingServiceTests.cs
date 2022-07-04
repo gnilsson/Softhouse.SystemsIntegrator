@@ -17,7 +17,7 @@ public class XmlConvertingServiceTests
         var xmlConvertingService = new Converter.XmlConvertingService(pbsStub.Object);
 
         //Act
-        var xml = xmlConvertingService.ConstructXmlDocument(input);
+        var xml = xmlConvertingService.Convert(input);
 
         //Assert
         Assert.Equal(expectedResult, xml.Text);
@@ -33,7 +33,7 @@ public class XmlConvertingServiceTests
         var xmlConvertingService = new Converter.XmlConvertingService(pbsStub.Object);
 
         //Act
-        var xml = xmlConvertingService.ConstructXmlDocument(input);
+        var xml = xmlConvertingService.Convert(input);
 
         //Assert
         Assert.NotNull(xml.Error);

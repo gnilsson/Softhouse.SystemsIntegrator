@@ -5,5 +5,5 @@ namespace Softhouse.Converter;
 
 public interface IXmlConvertingService
 {
-    XmlConstructionResult ConstructXmlDocument(RowInputFormat[] rowInputFormats);
+    XmlConstructionResult Convert(RowInputFormat[] rowInputFormats);
 }

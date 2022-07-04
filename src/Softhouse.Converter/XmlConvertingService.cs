@@ -16,7 +16,7 @@ public sealed class XmlConvertingService : IXmlConvertingService
         _personBuilderService = personBuilderService;
     }
 
-    public XmlConstructionResult ConstructXmlDocument(RowInputFormat[] rowInputFormats)
+    public XmlConstructionResult Convert(RowInputFormat[] rowInputFormats)
     {
         var xdoc = ConstructXDocument(rowInputFormats);
 
@@ -25,8 +25,6 @@ public sealed class XmlConvertingService : IXmlConvertingService
             Error = new XmlConstructingError { Messages = new[] { "empty." }, Status = XmlConstructingErrorStatus.Empty },
         };
 
-        var xmlDocument = xdoc.ToXmlDocument();
-
         if (TryGetXmlText(xdoc, out var xmlText, out var errorMessage) is false)
         {
             return new XmlConstructionResult
@@ -34,6 +32,8 @@ public sealed class XmlConvertingService : IXmlConvertingService
                 Error = new XmlConstructingError { Messages = new[] { errorMessage! }, Status = XmlConstructingErrorStatus.Invalid },
             };
         }
+
+        var xmlDocument = xdoc.ToXmlDocument();
 
         return new XmlConstructionResult
         {

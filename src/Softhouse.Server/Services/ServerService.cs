@@ -100,7 +100,7 @@ internal sealed class ServerService : IServerService
                 .Select(x => x.RowInputFormat)
                 .ToArray();
 
-            var xml = _xmlConvertingService.ConstructXmlDocument(rowInputFormats!);
+            var xml = _xmlConvertingService.Convert(rowInputFormats!);
 
             if (xml.Error is not null)
             {
