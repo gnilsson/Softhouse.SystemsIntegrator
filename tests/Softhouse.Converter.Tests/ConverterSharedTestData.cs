@@ -28,7 +28,7 @@ public static class ConverterSharedTestData
         new RowInputFormat { Category = RowCategory.Person, ValueColumns = new[] { "Bob", "E\u001a" } },
     };
 
-    public const string ExpectedXmlTextSuccessCaseParam1 = @"﻿<?xml version=""1.0"" encoding=""utf-8""?>
+    public const string ExpectedXmlTextSuccessSingle = @"﻿<?xml version=""1.0"" encoding=""utf-8""?>
 <people>
   <person>
     <firstname>Elof</firstname>
@@ -36,7 +36,7 @@ public static class ConverterSharedTestData
   </person>
 </people>";
 
-    public const string ExpectedXmlTextSuccessCaseParam2 = @"﻿<?xml version=""1.0"" encoding=""utf-8""?>
+    public const string ExpectedXmlTextSuccessMultiple = @"﻿<?xml version=""1.0"" encoding=""utf-8""?>
 <people>
   <person>
     <firstname>Elof</firstname>

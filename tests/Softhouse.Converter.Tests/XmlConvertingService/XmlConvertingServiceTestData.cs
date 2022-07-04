@@ -17,7 +17,7 @@ public static class XmlConvertingServiceTestData
                 {
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] }
                 },
-                ConverterSharedTestData.ExpectedXmlTextSuccessCaseParam1,
+                ConverterSharedTestData.ExpectedXmlTextSuccessSingle,
             },
             new object[]
             {
@@ -27,7 +27,7 @@ public static class XmlConvertingServiceTestData
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] },
                     new Person { FirstName = input[1].ValueColumns[0], LastName = input[1].ValueColumns[1] }
                 },
-                ConverterSharedTestData.ExpectedXmlTextSuccessCaseParam2,
+                ConverterSharedTestData.ExpectedXmlTextSuccessMultiple,
             },
         };
 
