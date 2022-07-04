@@ -2,7 +2,7 @@
 using Softhouse.Converter.XmlDocumentModels;
 using Softhouse.Shared.Metadata;
 
-namespace Softhouse.Converter.Tests.Data;
+namespace Softhouse.Converter.Tests.XmlConvertingService;
 
 public static class XmlConvertingServiceTestData
 {
@@ -12,7 +12,7 @@ public static class XmlConvertingServiceTestData
         {
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsSuccessCaseParam1,
+                ConverterSharedTestData.RowInputFormatsSuccessCase1,
                 (RowInputFormat[] input) => new Person[]
                 {
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] }
@@ -21,7 +21,7 @@ public static class XmlConvertingServiceTestData
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsSuccessCaseParam2,
+                ConverterSharedTestData.RowInputFormatsSuccessCase2,
                 (RowInputFormat[] input) => new Person[]
                 {
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] },
@@ -40,13 +40,13 @@ public static class XmlConvertingServiceTestData
         {
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsFailureCaseParam1,
+                ConverterSharedTestData.RowInputFormatsFailureCase1,
                 (RowInputFormat[] input) => Array.Empty<Person>(),
                 XmlConstructingErrorStatus.Empty,
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsFailureCaseParam2,
+                ConverterSharedTestData.RowInputFormatsFailureCase2,
                 (RowInputFormat[] input) => new Person[]
                 {
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] }

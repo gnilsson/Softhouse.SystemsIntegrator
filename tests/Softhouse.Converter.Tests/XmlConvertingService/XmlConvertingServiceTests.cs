@@ -1,10 +1,9 @@
 ﻿using Moq;
-using Softhouse.Converter.Tests.Data;
 using Softhouse.Converter.XmlConstructionModels;
 using Softhouse.Converter.XmlDocumentModels;
 using Softhouse.Shared.Metadata;
 
-namespace Softhouse.Converter.Tests;
+namespace Softhouse.Converter.Tests.XmlConvertingService;
 
 public class XmlConvertingServiceTests
 {
@@ -15,7 +14,7 @@ public class XmlConvertingServiceTests
         //Arrange
         var pbsStub = new Mock<IPersonBuilderService>();
         pbsStub.Setup(x => x.Build(input)).Returns(inputOutcome(input));
-        var xmlConvertingService = new XmlConvertingService(pbsStub.Object);
+        var xmlConvertingService = new Converter.XmlConvertingService(pbsStub.Object);
 
         //Act
         var xml = xmlConvertingService.ConstructXmlDocument(input);
@@ -31,7 +30,7 @@ public class XmlConvertingServiceTests
         //Arrange
         var pbsStub = new Mock<IPersonBuilderService>();
         pbsStub.Setup(x => x.Build(input)).Returns(inputOutcome(input));
-        var xmlConvertingService = new XmlConvertingService(pbsStub.Object);
+        var xmlConvertingService = new Converter.XmlConvertingService(pbsStub.Object);
 
         //Act
         var xml = xmlConvertingService.ConstructXmlDocument(input);

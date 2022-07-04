@@ -1,23 +1,23 @@
 ﻿using Softhouse.Shared.Metadata;
 
-namespace Softhouse.Converter.Tests.Data;
+namespace Softhouse.Converter.Tests;
 
 public static class ConverterSharedTestData
 {
-    public static RowInputFormat[] RowInputFormatsSuccessCaseParam1 => new RowInputFormat[]
+    public static RowInputFormat[] RowInputFormatsSuccessCase1 => new RowInputFormat[]
     {
         new RowInputFormat { Category = RowCategory.Person, ValueColumns = new[] { "Elof", "Sundin" } },
     };
 
-    public static RowInputFormat[] RowInputFormatsSuccessCaseParam2 => new RowInputFormat[]
+    public static RowInputFormat[] RowInputFormatsSuccessCase2 => new RowInputFormat[]
     {
         new RowInputFormat { Category = RowCategory.Person, ValueColumns = new[] { "Elof", "Sundin" } },
         new RowInputFormat { Category = RowCategory.Person, ValueColumns = new[] { "Boris", "Johnson" } },
     };
 
-    public static RowInputFormat[] RowInputFormatsFailureCaseParam1 => Array.Empty<RowInputFormat>();
+    public static RowInputFormat[] RowInputFormatsFailureCase1 => Array.Empty<RowInputFormat>();
 
-    public static RowInputFormat[] RowInputFormatsFailureCaseParam2 => new RowInputFormat[]
+    public static RowInputFormat[] RowInputFormatsFailureCase2 => new RowInputFormat[]
     {
         new RowInputFormat { Category = RowCategory.Person, ValueColumns = new[] { "Bob", "E\u001a" } },
     };
