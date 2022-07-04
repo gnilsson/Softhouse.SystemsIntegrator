@@ -24,7 +24,7 @@ public class XmlConvertingServiceTests
     }
 
     [Theory]
-    [MemberData(nameof(XmlConvertingServiceTestData.Get_ConstructXmlDocument_ErrorRowInputFormats_ReturnsErrorStatus), 2, MemberType = typeof(XmlConvertingServiceTestData))]
+    [MemberData(nameof(XmlConvertingServiceTestData.Get_ConstructXmlDocument_ErrorRowInputFormats_ReturnsErrorStatus), 3, MemberType = typeof(XmlConvertingServiceTestData))]
     public void ConstructXmlDocument_ErrorRowInputFormats_ReturnsErrorStatus(RowInputFormat[] input, Func<RowInputFormat[], Person[]> inputOutcome, XmlConstructingErrorStatus expectedResult)
     {
         //Arrange

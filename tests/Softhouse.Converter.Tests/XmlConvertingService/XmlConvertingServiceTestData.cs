@@ -12,7 +12,7 @@ public static class XmlConvertingServiceTestData
         {
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsSuccessCase1,
+                ConverterSharedTestData.RowInputFormatsSuccessSingle,
                 (RowInputFormat[] input) => new Person[]
                 {
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] }
@@ -21,7 +21,7 @@ public static class XmlConvertingServiceTestData
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsSuccessCase2,
+                ConverterSharedTestData.RowInputFormatsSuccessMultiple,
                 (RowInputFormat[] input) => new Person[]
                 {
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] },
@@ -40,13 +40,19 @@ public static class XmlConvertingServiceTestData
         {
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsFailureCase1,
+                ConverterSharedTestData.RowInputFormatsFailureEmpty1,
                 (RowInputFormat[] input) => Array.Empty<Person>(),
                 XmlConstructingErrorStatus.Empty,
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsFailureCase2,
+                ConverterSharedTestData.RowInputFormatsFailureEmpty2,
+                (RowInputFormat[] input) => Array.Empty<Person>(),
+                XmlConstructingErrorStatus.Empty,
+            },
+            new object[]
+            {
+                ConverterSharedTestData.RowInputFormatsFailureInvalid,
                 (RowInputFormat[] input) => new Person[]
                 {
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] }

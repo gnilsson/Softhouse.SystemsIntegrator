@@ -10,7 +10,7 @@ public static class PersonBuilderServiceTestData
         {
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsSuccessCase1,
+                ConverterSharedTestData.RowInputFormatsSuccessSingle,
                 new Person[]
                 {
                     new Person { FirstName = "Elof", LastName = "Sundin" }
@@ -18,7 +18,7 @@ public static class PersonBuilderServiceTestData
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsSuccessCase2,
+                ConverterSharedTestData.RowInputFormatsSuccessMultiple,
                 new Person[]
                 {
                     new Person { FirstName = "Elof", LastName = "Sundin" },
@@ -27,12 +27,12 @@ public static class PersonBuilderServiceTestData
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsFailureCase1,
+                ConverterSharedTestData.RowInputFormatsFailureEmpty1,
                 Enumerable.Empty<Person>(),
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsFailureCase2,
+                ConverterSharedTestData.RowInputFormatsFailureInvalid,
                 new Person[]
                 {
                     new Person { FirstName = "Bob", LastName = "E\u001a" },
