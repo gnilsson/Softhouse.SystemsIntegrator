@@ -33,11 +33,11 @@ internal sealed class ServerService : IServerService
 
             try
             {
-                RunTranslator();
+                RunTranscoder();
             }
             catch (Exception e)
             {
-                _consoleManager.WriteLine($"an unhandled error occured in translator.\n", ConsoleColor.Red);
+                _consoleManager.WriteLine($"an unhandled error occured in transcoder.\n", ConsoleColor.Red);
 
                 _consoleManager.WriteLine($"\n{e.Message}\n");
 
@@ -66,7 +66,7 @@ internal sealed class ServerService : IServerService
         } while (true);
     }
 
-    private void RunTranslator()
+    private void RunTranscoder()
     {
         do
         {
