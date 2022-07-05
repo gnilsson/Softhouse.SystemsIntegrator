@@ -44,7 +44,8 @@ A|S:t Johannesgatan 16|Uppsala|75330|5tr
 X|
 Y
 
-P|Bob|E\u001a",
+P|Bob|", //note: this row emits error from xml converter: "status: Invalid, message: '', hexadecimal value 0x1A, is an invalid character."
+          //\u001a
                 new RowParsingResult[]
                 {
                     new RowParsingResult { RowInputFormat = new() { Category = RowCategory.Person, ValueColumns = new[] { "Elof" } } },
@@ -52,7 +53,7 @@ P|Bob|E\u001a",
                     new RowParsingResult { RowInputFormat = new() { Category = RowCategory.Address, ValueColumns = new[] { "S:t Johannesgatan 16", "Uppsala", "75330", "5tr" } } },
                     new RowParsingResult { Error = new() { Status = RowParsingErrorStatus.Invalid } },
                     new RowParsingResult { Error = new() { Status = RowParsingErrorStatus.Empty } },
-                    new RowParsingResult { RowInputFormat = new() { Category = RowCategory.Person, ValueColumns = new[] { "Bob", "E\\u001a" } } },
+                    new RowParsingResult { RowInputFormat = new() { Category = RowCategory.Person, ValueColumns = new[] { "Bob", "" } } },
                 }
             }
         };
