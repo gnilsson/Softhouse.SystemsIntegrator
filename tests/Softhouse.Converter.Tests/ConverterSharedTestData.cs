@@ -23,9 +23,9 @@ public static class ConverterSharedTestData
         new RowInputFormat { Category = RowCategory.Address, ValueColumns = new[] { "S:t Johannesgatan 16", "Uppsala", "75330" } },
     };
 
-    public static RowInputFormat[] RowInputFormatsFailureInvalid => new RowInputFormat[]
+    public static RowInputFormat[] RowInputFormatsXmlFailureInvalid => new RowInputFormat[]
     {
-        new RowInputFormat { Category = RowCategory.Person, ValueColumns = new[] { "Bob", "E\u001a" } },
+        new RowInputFormat { Category = RowCategory.Person, ValueColumns = new[] { "Bob", "" } },
     };
 
     public const string ExpectedXmlTextSuccessSingle = @"﻿<?xml version=""1.0"" encoding=""utf-8""?>

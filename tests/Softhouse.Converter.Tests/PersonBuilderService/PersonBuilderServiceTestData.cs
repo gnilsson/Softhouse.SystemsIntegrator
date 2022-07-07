@@ -32,10 +32,10 @@ public static class PersonBuilderServiceTestData
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsFailureInvalid,
+                ConverterSharedTestData.RowInputFormatsXmlFailureInvalid,
                 new Person[]
                 {
-                    new Person { FirstName = "Bob", LastName = "E\u001a" },
+                    new Person { FirstName = "Bob", LastName = "" },
                 }.AsEnumerable(),
             },
         };

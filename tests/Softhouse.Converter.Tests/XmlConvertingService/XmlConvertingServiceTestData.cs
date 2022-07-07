@@ -52,7 +52,7 @@ public static class XmlConvertingServiceTestData
             },
             new object[]
             {
-                ConverterSharedTestData.RowInputFormatsFailureInvalid,
+                ConverterSharedTestData.RowInputFormatsXmlFailureInvalid,
                 (RowInputFormat[] input) => new Person[]
                 {
                     new Person { FirstName = input[0].ValueColumns[0], LastName = input[0].ValueColumns[1] }
