@@ -24,7 +24,7 @@ internal static class PersonPropertyBuilder
     {
         if (row is null) return default;
 
-        var result = builder(row!);
+        var result = builder(row);
 
         return result;
     }
@@ -38,13 +38,13 @@ internal static class PersonPropertyBuilder
 
     private static IEnumerable<T> YieldRow<T>(RowInputFormat[] rows, Func<RowInputFormat, int, T> builder)
     {
-        var iterator = 0;
-
-        foreach (var row in rows)
+        for (int i = 0; i < rows.Length; i++)
         {
+            var row = rows[i];
+
             if (row is null) continue;
 
-            var result = builder(row, iterator++);
+            var result = builder(row, i);
 
             yield return result;
         }
