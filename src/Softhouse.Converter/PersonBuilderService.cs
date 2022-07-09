@@ -5,7 +5,7 @@ namespace Softhouse.Converter;
 
 public sealed class PersonBuilderService : IPersonBuilderService
 {
-    private sealed class ContactRowInputs
+    private sealed class ContactRowInput
     {
         public RowInputFormat? Address { get; init; }
         public RowInputFormat? Phone { get; init; }
@@ -24,13 +24,13 @@ public sealed class PersonBuilderService : IPersonBuilderService
 
         for (int i = 0; i < personTargetRows.Length; i++)
         {
-            var (personRows, personContactRowInputs) = GetContactRowInputs(rowInputFormats, personTargetRows, i);
+            var (personRows, personContactRowInputs) = GetRelevantRowInputs(rowInputFormats, personTargetRows, i);
 
             var familyTargetRows = personRows
                 .Where(x => x.Category is RowCategory.Family)
                 .ToArray();
 
-            var familyContactRowInputs = YieldFamilyContactRowInputs(personRows, familyTargetRows).ToArray();
+            var familyContactRowInputs = YieldFamilyContactRowInput(personRows, familyTargetRows).ToArray();
 
             var person = new Person
             {
@@ -69,7 +69,7 @@ public sealed class PersonBuilderService : IPersonBuilderService
         }
     }
 
-    private static (RowInputFormat[], ContactRowInputs) GetContactRowInputs(RowInputFormat[] baseRowInputs, RowInputFormat[] targetRowInputs, int iterator)
+    private static (RowInputFormat[], ContactRowInput) GetRelevantRowInputs(RowInputFormat[] baseRowInputs, RowInputFormat[] targetRowInputs, int iterator)
     {
         var lineNumber = Array.IndexOf(baseRowInputs, targetRowInputs[iterator]) + 1;
 
@@ -82,18 +82,18 @@ public sealed class PersonBuilderService : IPersonBuilderService
         var addressTargetRow = rows.FirstOrDefault(x => x.Category is RowCategory.Address);
         var phoneTargetRow = rows.FirstOrDefault(x => x.Category is RowCategory.Telephone);
 
-        return (rows, new ContactRowInputs
+        return (rows, new ContactRowInput
         {
             Address = addressTargetRow,
             Phone = phoneTargetRow,
         });
     }
 
-    private static IEnumerable<ContactRowInputs> YieldFamilyContactRowInputs(RowInputFormat[] baseRowInputs, RowInputFormat[] targetRowInputs)
+    private static IEnumerable<ContactRowInput> YieldFamilyContactRowInput(RowInputFormat[] baseRowInputs, RowInputFormat[] targetRowInputs)
     {
         for (int i = 0; i < targetRowInputs.Length; i++)
         {
-            var (_, contactRowInputs) = GetContactRowInputs(baseRowInputs, targetRowInputs, i);
+            var (_, contactRowInputs) = GetRelevantRowInputs(baseRowInputs, targetRowInputs, i);
 
             yield return contactRowInputs;
         }
