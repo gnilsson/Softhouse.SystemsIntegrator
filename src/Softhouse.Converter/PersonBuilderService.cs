@@ -24,7 +24,7 @@ public sealed class PersonBuilderService : IPersonBuilderService
 
         for (int i = 0; i < personTargetRows.Length; i++)
         {
-            var (personRows, personContactRowInputs) = GetRelevantRowInputs(rowInputFormats, personTargetRows, i);
+            var (personRows, personContactRowInput) = GetRelevantRowInputs(rowInputFormats, personTargetRows, i);
 
             var familyTargetRows = personRows
                 .Where(x => x.Category is RowCategory.Family)
@@ -36,13 +36,13 @@ public sealed class PersonBuilderService : IPersonBuilderService
             {
                 FirstName = PersonPropertyBuilder.Build(personTargetRows[i], 0),
                 LastName = PersonPropertyBuilder.Build(personTargetRows[i], 1),
-                Address = PersonPropertyBuilder.BuildRow(personContactRowInputs.Address, (row) => new Address
+                Address = PersonPropertyBuilder.BuildRow(personContactRowInput.Address, (row) => new Address
                 {
                     Street = PersonPropertyBuilder.BuildColumn(row, 0),
                     City = PersonPropertyBuilder.BuildColumn(row, 1),
                     Zip = PersonPropertyBuilder.BuildColumn(row, 2)
                 }),
-                Phone = PersonPropertyBuilder.BuildRow(personContactRowInputs.Phone, (row) => new Phone
+                Phone = PersonPropertyBuilder.BuildRow(personContactRowInput.Phone, (row) => new Phone
                 {
                     Mobile = PersonPropertyBuilder.BuildColumn(row, 0),
                     Landline = PersonPropertyBuilder.BuildColumn(row, 1)
